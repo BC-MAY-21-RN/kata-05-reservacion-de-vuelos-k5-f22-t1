@@ -40,6 +40,10 @@ export const RegisterScreen = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onChange]);
 
+  const handleCheckTerm = (value, field) => {
+    onChange(value === false ? true : false, field);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Sign Up</Text>
@@ -68,10 +72,12 @@ export const RegisterScreen = () => {
         <CheckBox
           text="I agree to the Terms and Privacy Policy."
           checked={checkedTerm}
+          change={() => handleCheckTerm(checkedTerm, 'checkedTerm')}
         />
         <CheckBox
           text="Subscribe for select product updated."
           checked={checkedSubscribed}
+          change={() => handleCheckTerm(checkedSubscribed, 'checkedSubscribed')}
         />
       </View>
       <TouchableOpacity

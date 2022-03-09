@@ -2,15 +2,15 @@ import React, {useState} from 'react';
 import {View, TouchableOpacity, StyleSheet, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export const CheckBox = ({text, checked}) => {
-  const [check, setCheck] = useState(false);
+export const CheckBox = ({text, checked, change}) => {
+  // const [check, setCheck] = useState(false);
 
-  const handleCheck = () => {
-    setCheck(check === false ? true : false);
-  };
+  // const handleCheck = () => {
+  //   setCheck(check === false ? true : false);
+  // };
 
   const ChekboxChecked = () => (
-    <TouchableOpacity onPress={handleCheck} style={styles.containerMain}>
+    <TouchableOpacity onPress={change} style={styles.containerMain}>
       <View style={styles.containerCheck}>
         <Icon name="checkmark-outline" color={'white'} size={20} />
       </View>
@@ -18,13 +18,13 @@ export const CheckBox = ({text, checked}) => {
     </TouchableOpacity>
   );
   const ChekboxNOTChecked = () => (
-    <TouchableOpacity onPress={handleCheck} style={styles.containerMain}>
+    <TouchableOpacity onPress={change} style={styles.containerMain}>
       <View style={styles.containerNOTCheck} />
       <Text style={styles.txtCheckbox}>{text}</Text>
     </TouchableOpacity>
   );
 
-  return check === true ? <ChekboxChecked /> : <ChekboxNOTChecked />;
+  return checked === true ? <ChekboxChecked /> : <ChekboxNOTChecked />;
 };
 
 const styles = StyleSheet.create({
