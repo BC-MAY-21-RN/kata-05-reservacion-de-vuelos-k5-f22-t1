@@ -9,14 +9,12 @@ import {
 } from 'react-native';
 
 import {CheckBox} from '../components/CheckBox';
+import {FormRegister} from '../components/FormRegister';
 import {useForm} from '../hooks/useForm';
 
 export const RegisterScreen = () => {
   const {onChange, form} = useForm({
-    firstName: '',
-    email: '',
-    password: '',
-    checkedTerm: false,
+    firstName: '', email: '', password: '', checkedTerm: false,
     checkedSubscribed: false,
   });
   const {firstName, email, password, checkedTerm, checkedSubscribed} = form;
@@ -47,28 +45,8 @@ export const RegisterScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Sign Up</Text>
-      <View>
-        <Text style={styles.txtInput}>First Name</Text>
-        <TextInput
-          style={[styles.inputs, firstName.length > 0 && styles.inputFill]}
-          onChangeText={value => onChange(value, 'firstName')}
-        />
-        <Text style={styles.txtInput}>Email</Text>
-        <TextInput
-          style={[styles.inputs, email.length > 0 && styles.inputFill]}
-          onChangeText={value => onChange(value, 'email')}
-        />
-        <Text style={styles.txtInput}>Password</Text>
-        <TextInput
-          secureTextEntry={true}
-          style={[styles.inputs, password.length > 0 && styles.inputFill]}
-          onChangeText={value => onChange(value, 'password')}
-        />
-        <Text style={styles.txtPassword}>
-          Use 8 or more characters with a mix of letters, numbers, and symbols.
-        </Text>
-      </View>
-      <View>
+      <FormRegister firstName={firstName} email={email} password={password} onChange={onChange} />
+      
         <CheckBox
           text="I agree to the Terms and Privacy Policy."
           checked={checkedTerm}
@@ -78,7 +56,7 @@ export const RegisterScreen = () => {
           text="Subscribe for select product updated."
           checked={checkedSubscribed}
           change={() => handleCheckTerm(checkedSubscribed, 'checkedSubscribed')}
-        />
+        
       </View>
       <TouchableOpacity
         style={[styles.btnSignUp, formComplete && styles.btnSignUpOpen]}>
@@ -106,7 +84,7 @@ export const RegisterScreen = () => {
 const styles = StyleSheet.create({
   title: {
     fontSize: 22,
-    marginTop: 40,
+    marginTop: 10,
     marginBottom: 20,
     color: '#5D60F0',
     fontFamily: 'Impact',
@@ -114,22 +92,6 @@ const styles = StyleSheet.create({
   },
   container: {
     marginHorizontal: 20,
-  },
-  inputs: {
-    borderColor: 'gray',
-    color: 'black',
-    borderWidth: 1,
-    padding: 10,
-    marginTop: 15,
-    marginBottom: 15,
-  },
-  txtInput: {
-    color: 'black',
-  },
-  txtPassword: {
-    fontSize: 13,
-    color: 'black',
-    marginBottom: 40,
   },
   btnSignUp: {
     backgroundColor: 'rgba(0,0,0,0.2)',
@@ -190,8 +152,5 @@ const styles = StyleSheet.create({
   txtLogin: {
     color: 'blue',
     textDecorationLine: 'underline',
-  },
-  inputFill: {
-    borderColor: '#5D60F0',
   },
 });

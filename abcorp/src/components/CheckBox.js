@@ -1,14 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, TouchableOpacity, StyleSheet, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export const CheckBox = ({text, checked, change}) => {
-  // const [check, setCheck] = useState(false);
-
-  // const handleCheck = () => {
-  //   setCheck(check === false ? true : false);
-  // };
-
   const ChekboxChecked = () => (
     <TouchableOpacity onPress={change} style={styles.containerMain}>
       <View style={styles.containerCheck}>
