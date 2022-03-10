@@ -14,8 +14,7 @@ import {useForm} from '../hooks/useForm';
 
 export const RegisterScreen = () => {
   const {onChange, form} = useForm({
-    firstName: '', email: '', password: '', checkedTerm: false,
-    checkedSubscribed: false,
+    firstName: '', email: '', password: '', checkedTerm: false, checkedSubscribed: false,
   });
   const {firstName, email, password, checkedTerm, checkedSubscribed} = form;
   const [formComplete, setFormComplete] = useState(false);
@@ -46,7 +45,7 @@ export const RegisterScreen = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Sign Up</Text>
       <FormRegister firstName={firstName} email={email} password={password} onChange={onChange} />
-      
+      <View>
         <CheckBox
           text="I agree to the Terms and Privacy Policy."
           checked={checkedTerm}
@@ -56,7 +55,7 @@ export const RegisterScreen = () => {
           text="Subscribe for select product updated."
           checked={checkedSubscribed}
           change={() => handleCheckTerm(checkedSubscribed, 'checkedSubscribed')}
-        
+        />
       </View>
       <TouchableOpacity
         style={[styles.btnSignUp, formComplete && styles.btnSignUpOpen]}>
