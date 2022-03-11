@@ -1,11 +1,8 @@
 import React from 'react';
 import {CheckBox} from '../components/CheckBox';
 
-export const CheckBookRegister = ({
-  checkedTerm,
-  checkedSubscribed,
-  onChange,
-}) => {
+export const CheckBookRegister = ({form, onChange}) => {
+  const {checkedTerm, checkedSubscribed} = form;
   const handleCheckTerm = (value, field) => {
     onChange(value === false ? true : false, field);
   };

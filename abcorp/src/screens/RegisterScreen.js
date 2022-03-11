@@ -16,29 +16,13 @@ import {useForm} from '../hooks/useForm';
 
 export const RegisterScreen = () => {
   const {onChange, form} = useForm(initialForm);
-  const {firstName, email, password, checkedTerm, checkedSubscribed} = form;
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Sign Up</Text>
-      <FormRegister
-        firstName={firstName}
-        email={email}
-        password={password}
-        onChange={onChange}
-      />
-      <CheckBookRegister
-        checkedTerm={checkedTerm}
-        onChange={onChange}
-        checkedSubscribed={checkedSubscribed}
-      />
-      <ButtonsRegister
-        firstName={firstName}
-        email={email}
-        password={password}
-        onChange={onChange}
-        checkedTerm={checkedTerm}
-      />
+      <FormRegister form={form} onChange={onChange} />
+      <CheckBookRegister onChange={onChange} form={form} />
+      <ButtonsRegister form={form} onChange={onChange} />
       <HaveAccountRegister />
     </View>
   );

@@ -2,7 +2,8 @@ import React from 'react';
 
 import {View, Text, StyleSheet, TextInput} from 'react-native';
 
-export const FormRegister = ({firstName, email, password, onChange}) => {
+export const FormRegister = ({form, onChange}) => {
+  const {firstName, email, password} = form;
   return (
     <View>
       <Text style={styles.txtInput}>First Name</Text>

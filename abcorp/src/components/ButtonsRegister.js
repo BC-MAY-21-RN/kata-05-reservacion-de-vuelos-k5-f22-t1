@@ -1,14 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  View
-} from 'react-native';
+import {Text, StyleSheet, TouchableOpacity, Image, View} from 'react-native';
 
-export const ButtonsRegister = ({firstName, email, password, onChange, checkedTerm}) => {
+export const ButtonsRegister = ({form, onChange}) => {
   const [formComplete, setFormComplete] = useState(false);
+  const {firstName, email, password, checkedTerm} = form;
 
   const isFormComplete = () => {
     if (
@@ -46,8 +41,8 @@ export const ButtonsRegister = ({firstName, email, password, onChange, checkedTe
         <Text style={styles.txtBtn}>Sign Up with Google</Text>
       </TouchableOpacity>
     </>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   btnSignUp: {
