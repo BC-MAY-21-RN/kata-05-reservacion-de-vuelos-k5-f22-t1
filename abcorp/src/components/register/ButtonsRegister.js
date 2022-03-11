@@ -37,7 +37,10 @@ export const ButtonsRegister = ({form, onChange}) => {
           styles.btnSignUpGoogle,
           formComplete && styles.btnSignUpGoogleOpen,
         ]}>
-        <Image style={styles.imgGoogle} source={require('../img/google.png')} />
+        <Image
+          style={styles.imgGoogle}
+          source={require('../../img/google.png')}
+        />
         <Text style={styles.txtBtn}>Sign Up with Google</Text>
       </TouchableOpacity>
     </>

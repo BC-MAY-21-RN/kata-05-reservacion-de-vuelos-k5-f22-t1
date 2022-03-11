@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-import {FormRegister} from '../components/FormRegister';
-import {ButtonsRegister} from '../components/ButtonsRegister';
-import {CheckBookRegister} from '../components/CheckBookRegister';
-import {HaveAccountRegister} from '../components/HaveAccountRegister';
+import {FormRegister} from '../components/register/FormRegister';
+import {ButtonsRegister} from '../components/register/ButtonsRegister';
+import {CheckBookRegister} from '../components/register/CheckBookRegister';
+import {HaveAccountRegister} from '../components/register/HaveAccountRegister';
 
 const initialForm = {
   firstName: '',
@@ -39,5 +39,8 @@ const styles = StyleSheet.create({
   },
   container: {
     marginHorizontal: 20,
+    // backgroundColor: 'red',
+    flex: 1,
+    justifyContent: 'space-between',
   },
 });

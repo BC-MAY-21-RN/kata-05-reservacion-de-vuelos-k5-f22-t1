@@ -1,18 +1,14 @@
-import React from 'react'
-import {
-  View,
-  Text,
-  StyleSheet,
-} from 'react-native';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 
 export const HaveAccountRegister = () => {
   return (
     <View style={styles.containerAccount}>
-        <Text style={styles.txtOr}>Already have an account?</Text>
-        <Text style={styles.txtLogin}> Log in</Text>
-      </View>
-  )
-}
+      <Text style={styles.txtOr}>Already have an account?</Text>
+      <Text style={styles.txtLogin}> Log in</Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   txtOr: {

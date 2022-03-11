@@ -8,12 +8,12 @@ export const FormRegister = ({form, onChange}) => {
     <View>
       <Text style={styles.txtInput}>First Name</Text>
       <TextInput
-        autoFocus
         style={[styles.inputs, firstName.length > 0 && styles.inputFill]}
         onChangeText={value => onChange(value, 'firstName')}
       />
       <Text style={styles.txtInput}>Email</Text>
       <TextInput
+        autoComplete="false"
         style={[styles.inputs, email.length > 0 && styles.inputFill]}
         onChangeText={value => onChange(value, 'email')}
       />
