@@ -1,27 +1,22 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-import {CheckBox} from '../components/CheckBox';
 import {FormRegister} from '../components/FormRegister';
 import {ButtonsRegister} from '../components/ButtonsRegister';
 import {CheckBookRegister} from '../components/CheckBookRegister';
 import {HaveAccountRegister} from '../components/HaveAccountRegister';
+
+const initialForm = {
+  firstName: '',
+  email: '',
+  password: '',
+  checkedTerm: false,
+};
 import {useForm} from '../hooks/useForm';
 
 export const RegisterScreen = () => {
-  const {onChange, form} = useForm({
-    firstName: '',
-    email: '',
-    password: '',
-    checkedTerm: false,
-    checkedSubscribed: false,
-  });
+  const {onChange, form} = useForm(initialForm);
   const {firstName, email, password, checkedTerm, checkedSubscribed} = form;
-  const handleCheckTerm = (value, field) => {
-    onChange(value === false ? true : false, field);
-  };
-
-  console.log(firstName);
 
   return (
     <View style={styles.container}>
@@ -34,7 +29,7 @@ export const RegisterScreen = () => {
       />
       <CheckBookRegister
         checkedTerm={checkedTerm}
-        handleCheckTerm={handleCheckTerm}
+        onChange={onChange}
         checkedSubscribed={checkedSubscribed}
       />
       <ButtonsRegister

@@ -1,7 +1,14 @@
 import React from 'react';
-import {CheckBox} from '../components/CheckBox'
+import {CheckBox} from '../components/CheckBox';
 
-export const CheckBookRegister = ({checkedTerm, handleCheckTerm, checkedSubscribed}) => {
+export const CheckBookRegister = ({
+  checkedTerm,
+  checkedSubscribed,
+  onChange,
+}) => {
+  const handleCheckTerm = (value, field) => {
+    onChange(value === false ? true : false, field);
+  };
   return (
     <>
       <CheckBox
@@ -15,5 +22,5 @@ export const CheckBookRegister = ({checkedTerm, handleCheckTerm, checkedSubscrib
         change={() => handleCheckTerm(checkedSubscribed, 'checkedSubscribed')}
       />
     </>
-  )
-}
+  );
+};
