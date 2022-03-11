@@ -13,7 +13,7 @@ export const FormRegister = ({form, onChange}) => {
       />
       <Text style={styles.txtInput}>Email</Text>
       <TextInput
-        autoComplete="false"
+        autoCapitalize="none"
         style={[styles.inputs, email.length > 0 && styles.inputFill]}
         onChangeText={value => onChange(value, 'email')}
       />
