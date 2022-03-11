@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
   },
   container: {
     marginHorizontal: 20,
-    // backgroundColor: 'red',
     flex: 1,
     justifyContent: 'space-between',
   },
