@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
 import {FormRegister} from '../components/register/FormRegister';
 import {ButtonsRegister} from '../components/register/ButtonsRegister';
 import {CheckBookRegister} from '../components/register/CheckBookRegister';
-import {HaveAccountRegister} from '../components/register/HaveAccountRegister';
 import {useForm} from '../hooks/useForm';
+import {HaveAccount} from '../components/auth/HaveAccount';
+import {screenStyles} from '../components/auth/screenStyles';
 
 const initialForm = {
   firstName: '',
@@ -17,28 +18,17 @@ export const RegisterScreen = ({navigation}) => {
   const {onChange, form} = useForm(initialForm);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Sign Up</Text>
+    <View style={screenStyles.container}>
+      <Text style={screenStyles.title}>Sign Up</Text>
       <FormRegister form={form} onChange={onChange} />
       <CheckBookRegister onChange={onChange} form={form} />
       <ButtonsRegister form={form} onChange={onChange} />
-      <HaveAccountRegister navigation={navigation}/>
+      <HaveAccount
+        navigation={navigation}
+        message="Already have an account?"
+        toNavigate="LoginScreen"
+        nameScreen="Log in"
+      />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 22,
-    marginTop: 10,
-    marginBottom: 20,
-    color: '#5D60F0',
-    fontFamily: 'Impact',
-    fontWeight: 'bold',
-  },
-  container: {
-    marginHorizontal: 20,
-    flex: 1,
-    justifyContent: 'space-between',
-  },
-});

@@ -1,5 +1,5 @@
 import React from 'react';
-import {CheckBox} from '../CheckBox';
+import {CheckBox} from '../auth/CheckBox';
 
 export const CheckBookRegister = ({form, onChange}) => {
   const {checkedTerm, checkedSubscribed} = form;

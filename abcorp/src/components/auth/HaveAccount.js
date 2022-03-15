@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
-export const AccountRegister = ({navigation}) => {
+export const HaveAccount = ({navigation, message, toNavigate, nameScreen}) => {
   return (
     <View style={styles.containerAccount}>
-      <Text style={styles.txtOr}>I don't have an account?</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
-        <Text style={styles.txtLogin}> Sign Up</Text>
+      <Text style={styles.txtOr}>{message}</Text>
+      <TouchableOpacity onPress={() => navigation.navigate(toNavigate)}>
+        <Text style={styles.txtLogin}> {nameScreen}</Text>
       </TouchableOpacity>
     </View>
   );
