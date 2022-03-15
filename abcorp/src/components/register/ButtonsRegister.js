@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Text, TouchableOpacity, Image, View} from 'react-native';
+import { ButtonGoogle } from '../auth/ButtonGoogle';
+import {ButtonNormal} from '../auth/ButtonNormal';
 import {buttonsStyles} from '../auth/buttonsStyles';
 
 export const ButtonsRegister = ({form, onChange}) => {
@@ -26,17 +28,18 @@ export const ButtonsRegister = ({form, onChange}) => {
 
   return (
     <>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={[
           buttonsStyles.btnSignUp,
           formComplete && buttonsStyles.btnSignUpOpen,
         ]}>
         <Text style={buttonsStyles.txtBtn}>Sign Up</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+      <ButtonNormal formComplete={formComplete} message="Sign up" />
       <View style={buttonsStyles.containerOr}>
         <Text style={buttonsStyles.txtOr}>or</Text>
       </View>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={[
           buttonsStyles.btnSignUpGoogle,
           formComplete && buttonsStyles.btnSignUpGoogleOpen,
@@ -46,7 +49,8 @@ export const ButtonsRegister = ({form, onChange}) => {
           source={require('../../img/google.png')}
         />
         <Text style={buttonsStyles.txtBtn}>Sign Up with Google</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+      <ButtonGoogle formComplete={formComplete} message="Sign Up with Google" />
     </>
   );
 };

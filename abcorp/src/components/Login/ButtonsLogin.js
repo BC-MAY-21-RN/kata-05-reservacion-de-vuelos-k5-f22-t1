@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Text, TouchableOpacity, Image, View} from 'react-native';
+import {ButtonGoogle} from '../auth/ButtonGoogle';
+import {ButtonNormal} from '../auth/ButtonNormal';
 import {buttonsStyles} from '../auth/buttonsStyles';
 
 export const ButtonsLogin = ({form, onChange}) => {
@@ -21,27 +23,11 @@ export const ButtonsLogin = ({form, onChange}) => {
 
   return (
     <>
-      <TouchableOpacity
-        style={[
-          buttonsStyles.btnSignUp,
-          formComplete && buttonsStyles.btnSignUpOpen,
-        ]}>
-        <Text style={buttonsStyles.txtBtn}>Log in</Text>
-      </TouchableOpacity>
+      <ButtonNormal formComplete={formComplete} message="Log in" />
       <View style={buttonsStyles.containerOr}>
         <Text style={buttonsStyles.txtOr}>or</Text>
       </View>
-      <TouchableOpacity
-        style={[
-          buttonsStyles.btnSignUpGoogle,
-          formComplete && buttonsStyles.btnSignUpGoogleOpen,
-        ]}>
-        <Image
-          style={buttonsStyles.imgGoogle}
-          source={require('../../img/google.png')}
-        />
-        <Text style={buttonsStyles.txtBtn}>Log In with Google</Text>
-      </TouchableOpacity>
+      <ButtonGoogle formComplete={formComplete} message="Log In with Google" />
     </>
   );
 };
