@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-
 import {FormRegister} from '../components/register/FormRegister';
 import {ButtonsRegister} from '../components/register/ButtonsRegister';
 import {CheckBookRegister} from '../components/register/CheckBookRegister';
 import {HaveAccountRegister} from '../components/register/HaveAccountRegister';
+import {useForm} from '../hooks/useForm';
 
 const initialForm = {
   firstName: '',
@@ -12,9 +12,8 @@ const initialForm = {
   password: '',
   checkedTerm: false,
 };
-import {useForm} from '../hooks/useForm';
 
-export const RegisterScreen = () => {
+export const RegisterScreen = ({navigation}) => {
   const {onChange, form} = useForm(initialForm);
 
   return (
@@ -23,7 +22,7 @@ export const RegisterScreen = () => {
       <FormRegister form={form} onChange={onChange} />
       <CheckBookRegister onChange={onChange} form={form} />
       <ButtonsRegister form={form} onChange={onChange} />
-      <HaveAccountRegister />
+      <HaveAccountRegister navigation={navigation}/>
     </View>
   );
 };
