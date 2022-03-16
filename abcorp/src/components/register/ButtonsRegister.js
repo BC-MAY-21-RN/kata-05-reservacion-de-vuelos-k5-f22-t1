@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {ButtonGoogle} from '../auth/ButtonGoogle';
-import {ButtonNormal} from '../auth/ButtonNormal';
-import {TextOr} from '../auth/TextOr';
+import {ButtonsComplete} from '../auth/ButtonsComplete';
 
 export const ButtonsRegister = ({form, onChange}) => {
   const [formComplete, setFormComplete] = useState(false);
@@ -27,9 +25,11 @@ export const ButtonsRegister = ({form, onChange}) => {
 
   return (
     <>
-      <ButtonNormal formComplete={formComplete} message="Sign up" />
-      <TextOr />
-      <ButtonGoogle formComplete={formComplete} message="Sign Up with Google" />
+      <ButtonsComplete
+        formComplete={formComplete}
+        msgBtnNormal="Sign up"
+        msgBtnGoogle="Sign Up with Google"
+      />
     </>
   );
 };
