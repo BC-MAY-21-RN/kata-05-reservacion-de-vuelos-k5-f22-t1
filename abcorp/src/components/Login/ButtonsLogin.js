@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import {Text, TouchableOpacity, Image, View} from 'react-native';
 import {ButtonGoogle} from '../auth/ButtonGoogle';
 import {ButtonNormal} from '../auth/ButtonNormal';
-import {buttonsStyles} from '../auth/buttonsStyles';
+import {TextOr} from '../auth/TextOr';
 
 export const ButtonsLogin = ({form, onChange}) => {
   const [formComplete, setFormComplete] = useState(false);
@@ -24,9 +23,7 @@ export const ButtonsLogin = ({form, onChange}) => {
   return (
     <>
       <ButtonNormal formComplete={formComplete} message="Log in" />
-      <View style={buttonsStyles.containerOr}>
-        <Text style={buttonsStyles.txtOr}>or</Text>
-      </View>
+      <TextOr />
       <ButtonGoogle formComplete={formComplete} message="Log In with Google" />
     </>
   );
