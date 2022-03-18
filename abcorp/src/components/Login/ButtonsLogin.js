@@ -1,17 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {ButtonsComplete} from '../auth/ButtonsComplete';
 
-export const ButtonsRegister = ({form, onChange}) => {
+export const ButtonsLogin = ({form, onChange}) => {
   const [formComplete, setFormComplete] = useState(false);
-  const {firstName, email, password, checkedTerm} = form;
+  const {email, password} = form;
 
   const isFormComplete = () => {
-    if (
-      firstName.length > 0 &&
-      email.length > 0 &&
-      password.length > 0 &&
-      checkedTerm
-    ) {
+    if (email.length > 0 && password.length > 0) {
       setFormComplete(true);
     } else {
       setFormComplete(false);
@@ -27,8 +22,8 @@ export const ButtonsRegister = ({form, onChange}) => {
     <>
       <ButtonsComplete
         formComplete={formComplete}
-        msgBtnNormal="Sign up"
-        msgBtnGoogle="Sign Up with Google"
+        msgBtnNormal="Log in"
+        msgBtnGoogle="Log In with Google"
       />
     </>
   );

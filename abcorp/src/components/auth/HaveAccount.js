@@ -1,11 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
-export const HaveAccountRegister = () => {
+export const HaveAccount = ({navigation, message, toNavigate, nameScreen}) => {
   return (
     <View style={styles.containerAccount}>
-      <Text style={styles.txtOr}>Already have an account?</Text>
-      <Text style={styles.txtLogin}> Log in</Text>
+      <Text style={styles.txtOr}>{message}</Text>
+      <TouchableOpacity onPress={() => navigation.navigate(toNavigate)}>
+        <Text style={styles.txtLogin}> {nameScreen}</Text>
+      </TouchableOpacity>
     </View>
   );
 };
