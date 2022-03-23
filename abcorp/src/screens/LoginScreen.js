@@ -18,7 +18,7 @@ export const LoginScreen = ({navigation}) => {
     <View style={screenStyles.container}>
       <Text style={screenStyles.title}>Log in</Text>
       <FormLogin onChange={onChange} form={form} />
-      <ButtonsLogin form={form} onChange={onChange} />
+      <ButtonsLogin form={form} onChange={onChange} navigation={navigation} />
       <HaveAccount
         navigation={navigation}
         message="I don't have an account?"
