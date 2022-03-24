@@ -9,7 +9,11 @@ const Stack = createNativeStackNavigator();
 
 export const AppNavigation = () => {
   return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        contentStyle: {backgroundColor: 'white'},
+      }}>
       <Stack.Screen name="HomeScreen" component={HomePageScreen} />
       <Stack.Screen name="FlightOriginScreen" component={FlightOriginScreen} />
       <Stack.Screen
