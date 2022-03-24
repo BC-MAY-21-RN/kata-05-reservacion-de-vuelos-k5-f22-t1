@@ -1,15 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {InformationOrigin} from '../components/booking/flightOrigin/InformationOrigin';
-import {Calendar} from 'react-native-calendars';
 import {BtnBack} from '../components/booking/BtnBack';
 import {ButtonReserve} from '../components/booking/ButtonReserve';
-
-const [dateNow] = new Date().toISOString().split('T');
-const [yearNow, monthNow, dayNow] = dateNow.split('-');
+import {FlightCalendar} from '../components/booking/flightOrigin/FlightCalendar';
 
 export const FlightCalendarScreen = ({route, navigation}) => {
   const {flightOrigin, flightDataComplete} = route.params;
+  const flightData = route.params;
 
   const [date, setDate] = useState({
     day: '',
@@ -20,15 +18,6 @@ export const FlightCalendarScreen = ({route, navigation}) => {
 
   const {dateComplete} = date;
 
-  useEffect(() => {
-    setDate({
-      day: dayNow,
-      month: monthNow,
-      year: yearNow,
-      dateComplete: dateNow,
-    });
-  }, []);
-
   return (
     <View style={styles.container}>
       <BtnBack navigation={navigation} />
@@ -37,29 +26,12 @@ export const FlightCalendarScreen = ({route, navigation}) => {
         flightDestiny={flightDataComplete}
       />
       <Text style={styles.title}>Select date</Text>
-      <Calendar
-        markedDates={{
-          [dateComplete]: {
-            selected: true,
-            marked: true,
-            selectedColor: '#5D60F0',
-          },
-        }}
-        onDayPress={({day, month, year, dateString}) => {
-          setDate({
-            day,
-            month,
-            year,
-            dateComplete: dateString,
-          });
-        }}
-        theme={{arrowColor: '#5D60F0'}}
-      />
+      <FlightCalendar date={date} setDate={setDate} />
       <ButtonReserve
         navigation={navigation}
         flightDestinyScreen={'Some'}
-        flightOrigin={flightOrigin}
-        flightDataComplete={flightDataComplete}
+        flightOrigin={dateComplete}
+        flightDataComplete={flightData}
       />
     </View>
   );

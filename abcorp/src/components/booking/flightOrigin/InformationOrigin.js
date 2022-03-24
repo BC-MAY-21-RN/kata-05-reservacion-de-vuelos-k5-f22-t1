@@ -1,32 +1,26 @@
 import React from 'react';
-import {View, Text, StyleSheet, KeyboardAvoidingView} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export const InformationOrigin = ({flightOrigin, flightDestiny = ''}) => {
   const [cityOrigin, countryOrigin] = flightOrigin.split(',');
   const [cityDestiny, countryDestiny] = flightDestiny.split(',');
   return (
-    <View
-      style={[
-        styles.containerInfo,
-        cityDestiny && styles.containerInfoComplete,
-      ]}>
-      <View
-        style={[
-          styles.containerFlight,
-          cityDestiny && styles.containerFlightComplete,
-        ]}>
+    <View style={styles.containerInfo}>
+      <View style={styles.containerFlight}>
         <Text style={styles.city}>{cityOrigin}</Text>
         <Text style={styles.country}>{countryOrigin}</Text>
       </View>
       <Icon style={styles.iconFly} name="airplane" color="#5D60F0" size={30} />
       <View
         style={[
-          styles.containerFlight,
-          cityDestiny && styles.containerFlightComplete,
+          styles.containerFlightDestiny,
+          cityDestiny && styles.containerFlight,
         ]}>
-        <Text style={styles.city}>{cityDestiny}</Text>
-        <Text style={styles.country}>{countryDestiny}</Text>
+        <Text style={[styles.city, styles.txtDestiny]}>{cityDestiny}</Text>
+        <Text style={[styles.country, styles.txtDestiny]}>
+          {countryDestiny}
+        </Text>
       </View>
     </View>
   );
@@ -41,24 +35,25 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     position: 'absolute',
   },
-  containerInfoComplete: {
-    justifyContent: 'space-between',
-  },
   city: {
     color: 'black',
-    marginTop: 10,
+    marginTop: 5,
     fontWeight: 'bold',
     fontSize: 25,
   },
   country: {
     color: 'gray',
-    marginVertical: 10,
-  },
-  containerFlightComplete: {
-    borderBottomWidth: 0.5,
-    borderBottomColor: 'gray',
+    marginVertical: 5,
   },
   containerFlight: {
     width: '45%',
+    borderBottomWidth: 0.5,
+    borderBottomColor: 'gray',
+  },
+  containerFlightDestiny: {
+    width: '45%',
+  },
+  txtDestiny: {
+    textAlign: 'center',
   },
 });
