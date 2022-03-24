@@ -21,5 +21,6 @@ const styles = StyleSheet.create({
   },
   country: {
     fontSize: 18,
+    color: 'gray',
   },
 });
