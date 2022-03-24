@@ -6,18 +6,18 @@ import {InformationOrigin} from '../components/booking/flightOrigin/InformationO
 
 export const FlightDestinyScreen = ({navigation, route}) => {
   const [flightDestiny, setflightDestiny] = useState('');
-  const {flightOrigin} = route.params;
+  const {flightData} = route.params;
   return (
     <View style={styles.mainContainer}>
       <BtnBack navigation={navigation} />
-      <InformationOrigin flightOrigin={flightOrigin} />
+      <InformationOrigin flightOrigin={flightData} />
       <FlightForm
         txt="Where will you be flying to?"
         navigation={navigation}
         flightDestinyScreen="FlightCalendarScreen"
         flightOrigin={flightDestiny}
         setflightOrigin={setflightDestiny}
-        flightDataComplete={flightOrigin}
+        flightDataComplete={flightData}
       />
     </View>
   );

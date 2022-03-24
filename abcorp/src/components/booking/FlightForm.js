@@ -23,7 +23,7 @@ export const FlightForm = ({
       <ButtonReserve
         navigation={navigation}
         flightDestinyScreen={flightDestinyScreen}
-        flightOrigin={flightOrigin}
+        flightData={flightOrigin}
         flightDataComplete={flightDataComplete}
       />
     </>

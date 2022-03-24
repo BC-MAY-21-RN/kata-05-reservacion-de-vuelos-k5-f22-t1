@@ -4,22 +4,19 @@ import {TouchableOpacity, Text, StyleSheet} from 'react-native';
 export const ButtonReserve = ({
   navigation,
   flightDestinyScreen,
-  flightOrigin,
+  flightData,
   flightDataComplete,
 }) => {
   return (
     <TouchableOpacity
       onPress={() =>
         navigation.navigate(flightDestinyScreen, {
-          flightOrigin,
+          flightData,
           flightDataComplete,
         })
       }
-      disabled={flightOrigin.length > 0 ? false : true}
-      style={[
-        styles.buttonReserve,
-        flightOrigin.length > 0 && styles.btnColor,
-      ]}>
+      disabled={flightData.length > 0 ? false : true}
+      style={[styles.buttonReserve, flightData.length > 0 && styles.btnColor]}>
       <Text style={styles.txt}>Next</Text>
     </TouchableOpacity>
   );

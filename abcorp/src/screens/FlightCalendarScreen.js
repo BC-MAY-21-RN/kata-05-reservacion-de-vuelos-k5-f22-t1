@@ -6,8 +6,10 @@ import {ButtonReserve} from '../components/booking/ButtonReserve';
 import {FlightCalendar} from '../components/booking/flightOrigin/FlightCalendar';
 
 export const FlightCalendarScreen = ({route, navigation}) => {
-  const {flightOrigin, flightDataComplete} = route.params;
-  const flightData = route.params;
+  const {flightData: flightDestiny, flightDataComplete: flightOrigin} =
+    route.params;
+  const flightInfo = route.params;
+  // {"flightData": "Madrid,España ", "flightDataComplete": "Colima, México "}
 
   const [date, setDate] = useState({
     day: '',
@@ -23,15 +25,15 @@ export const FlightCalendarScreen = ({route, navigation}) => {
       <BtnBack navigation={navigation} />
       <InformationOrigin
         flightOrigin={flightOrigin}
-        flightDestiny={flightDataComplete}
+        flightDestiny={flightDestiny}
       />
       <Text style={styles.title}>Select date</Text>
       <FlightCalendar date={date} setDate={setDate} />
       <ButtonReserve
         navigation={navigation}
-        flightDestinyScreen={'Some'}
-        flightOrigin={dateComplete}
-        flightDataComplete={flightData}
+        flightDestinyScreen={'FlightPassengersScreen'}
+        flightData={dateComplete}
+        flightDataComplete={flightInfo}
       />
     </View>
   );

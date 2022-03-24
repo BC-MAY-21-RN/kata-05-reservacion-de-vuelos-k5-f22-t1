@@ -4,6 +4,7 @@ import {HomePageScreen} from '../screens/HomePageScreen';
 import {FlightOriginScreen} from '../screens/FlightOriginScreen';
 import {FlightDestinyScreen} from '../screens/FlightDestinyScreen';
 import {FlightCalendarScreen} from '../screens/FlightCalendarScreen';
+import {FlightPassengersScreen} from '../screens/FlightPassengersScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,10 @@ export const AppNavigation = () => {
       <Stack.Screen
         name="FlightCalendarScreen"
         component={FlightCalendarScreen}
+      />
+      <Stack.Screen
+        name="FlightPassengersScreen"
+        component={FlightPassengersScreen}
       />
     </Stack.Navigator>
   );
