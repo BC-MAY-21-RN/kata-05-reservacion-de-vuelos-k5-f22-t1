@@ -9,9 +9,21 @@ export const CardFlight = ({item}) => {
   return (
     <View>
       <View style={styles.container}>
-        <InfoFlight city={cityOrigin} country={countryOrigin} />
+        <InfoFlight
+          city={cityOrigin}
+          country={countryOrigin}
+          styleContainer={styles.containerInfo}
+          styleCity={styles.titleCity}
+          styleCountry={styles.country}
+        />
         <Icon name="airplane" color="#5D60F0" size={30} />
-        <InfoFlight city={cityDestiny} country={countryDestiny} />
+        <InfoFlight
+          city={cityDestiny}
+          country={countryDestiny}
+          styleContainer={styles.containerInfo}
+          styleCity={styles.titleCity}
+          styleCountry={styles.country}
+        />
       </View>
       <View style={styles.separator} />
       <View style={styles.containerDate}>
@@ -27,7 +39,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    // backgroundColor: 'red',
     justifyContent: 'space-between',
   },
   containerDate: {
@@ -42,5 +53,17 @@ const styles = StyleSheet.create({
   separator: {
     borderWidth: 0.5,
     marginVertical: 10,
+  },
+  containerInfo: {
+    flexDirection: 'column',
+  },
+  titleCity: {
+    fontWeight: 'bold',
+    fontSize: 25,
+    color: 'black',
+  },
+  country: {
+    fontSize: 18,
+    color: 'gray',
   },
 });

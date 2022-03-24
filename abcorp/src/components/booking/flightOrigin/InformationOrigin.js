@@ -1,16 +1,20 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {InfoFlight} from '../../home/InfoFlight';
 
 export const InformationOrigin = ({flightOrigin, flightDestiny = ''}) => {
   const [cityOrigin, countryOrigin] = flightOrigin.split(',');
   const [cityDestiny, countryDestiny] = flightDestiny.split(',');
   return (
     <View style={styles.containerInfo}>
-      <View style={styles.containerFlight}>
-        <Text style={styles.city}>{cityOrigin}</Text>
-        <Text style={styles.country}>{countryOrigin}</Text>
-      </View>
+      <InfoFlight
+        city={cityOrigin}
+        country={countryOrigin}
+        styleContainer={styles.containerFlight}
+        styleCity={styles.city}
+        styleCountry={styles.country}
+      />
       <Icon style={styles.iconFly} name="airplane" color="#5D60F0" size={30} />
       <View
         style={[

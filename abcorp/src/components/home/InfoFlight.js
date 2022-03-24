@@ -1,26 +1,17 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
 
-export const InfoFlight = ({city, country}) => {
+export const InfoFlight = ({
+  city,
+  country,
+  styleContainer,
+  styleCity,
+  styleCountry,
+}) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.titleCity}>{city}</Text>
-      <Text style={styles.country}>{country}</Text>
+    <View style={styleContainer}>
+      <Text style={styleCity}>{city}</Text>
+      <Text style={styleCountry}>{country}</Text>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'column',
-  },
-  titleCity: {
-    fontWeight: 'bold',
-    fontSize: 25,
-    color: 'black',
-  },
-  country: {
-    fontSize: 18,
-    color: 'gray',
-  },
-});
