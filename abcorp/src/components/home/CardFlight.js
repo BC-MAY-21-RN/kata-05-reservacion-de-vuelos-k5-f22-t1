@@ -9,21 +9,9 @@ export const CardFlight = ({item}) => {
   return (
     <View>
       <View style={styles.container}>
-        <InfoFlight
-          city={cityOrigin}
-          country={countryOrigin}
-          styleContainer={styles.containerInfo}
-          styleCity={styles.titleCity}
-          styleCountry={styles.country}
-        />
+        <InfoFlight city={cityOrigin} country={countryOrigin} home={true} />
         <Icon name="airplane" color="#5D60F0" size={30} />
-        <InfoFlight
-          city={cityDestiny}
-          country={countryDestiny}
-          styleContainer={styles.containerInfo}
-          styleCity={styles.titleCity}
-          styleCountry={styles.country}
-        />
+        <InfoFlight city={cityDestiny} country={countryDestiny} home={true} />
       </View>
       <View style={styles.separator} />
       <View style={styles.containerDate}>

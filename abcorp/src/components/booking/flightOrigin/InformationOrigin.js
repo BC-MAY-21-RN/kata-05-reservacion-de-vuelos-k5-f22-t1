@@ -8,13 +8,7 @@ export const InformationOrigin = ({flightOrigin, flightDestiny = ''}) => {
   const [cityDestiny, countryDestiny] = flightDestiny.split(',');
   return (
     <View style={styles.containerInfo}>
-      <InfoFlight
-        city={cityOrigin}
-        country={countryOrigin}
-        styleContainer={styles.containerFlight}
-        styleCity={styles.city}
-        styleCountry={styles.country}
-      />
+      <InfoFlight city={cityOrigin} country={countryOrigin} home={false} />
       <Icon style={styles.iconFly} name="airplane" color="#5D60F0" size={30} />
       <View
         style={[
