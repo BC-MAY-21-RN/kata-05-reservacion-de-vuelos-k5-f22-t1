@@ -1,31 +1,17 @@
+const months = {
+  '01': 'January',
+  '02': 'February',
+  '03': 'March',
+  '04': 'April',
+  '05': 'May',
+  '06': 'June',
+  '07': 'July',
+  '08': 'August',
+  '09': 'September',
+  10: 'October',
+  11: 'November',
+  12: 'December',
+};
 export const getMonth = month => {
-  switch (month) {
-    case '01':
-      return 'January';
-    case '02':
-      return 'February';
-    case '03':
-      return 'March';
-    case '04':
-      return 'April';
-    case '05':
-      return 'May';
-    case '06':
-      return 'June';
-    case '07':
-      return 'July';
-    case '08':
-      return 'August';
-    case '09':
-      return 'September';
-    case '10':
-      return 'October';
-    case '11':
-      return 'November';
-    case '12':
-      return 'enero';
-
-    default:
-      return 'December';
-  }
+  return months[month];
 };
