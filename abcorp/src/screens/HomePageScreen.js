@@ -1,12 +1,11 @@
 import React from 'react';
-import {View, Text, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, FlatList, StyleSheet} from 'react-native';
 import {CardFlight} from '../components/home/CardFlight';
 import {ItemSeparator} from '../components/home/ItemSeparator';
 import {BtnFloat} from '../components/home/BtnFloat';
 import data from '../components/home/API';
 
-export const HomePageScreen = () => {
-  //const onPress = () =>
+export const HomePageScreen = ({navigation}) => {
   return (
     <View style={styles.home}>
       <Text style={styles.title}>My Flights</Text>
@@ -17,7 +16,7 @@ export const HomePageScreen = () => {
         ItemSeparatorComponent={() => <ItemSeparator />}
         showsVerticalScrollIndicator={false}
       />
-      <BtnFloat />
+      <BtnFloat navigation={navigation} />
     </View>
   );
 };

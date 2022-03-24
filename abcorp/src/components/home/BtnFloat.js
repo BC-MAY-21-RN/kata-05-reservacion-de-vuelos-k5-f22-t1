@@ -1,16 +1,16 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import {TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export const BtnFloat = () => {
+export const BtnFloat = ({navigation}) => {
   return (
     <TouchableOpacity
-        style={styles.btnFloat}
-      >
-        <Icon name="add-outline" size={50} color="white" />
-      </TouchableOpacity>
-  )
-}
+      style={styles.btnFloat}
+      onPress={() => navigation.navigate('FlightOriginScreen')}>
+      <Icon name="add-outline" size={50} color="white" />
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   btnFloat: {
@@ -23,5 +23,5 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     position: 'absolute',
     bottom: 0,
-  }
-})
+  },
+});
