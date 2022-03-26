@@ -2,9 +2,10 @@ import React from 'react';
 import {TouchableOpacity, Text, Image} from 'react-native';
 import {buttonsStyles} from './buttonsStyles';
 
-export const ButtonGoogle = ({formComplete, message}) => {
+export const ButtonGoogle = ({formComplete, message, logginGoogle}) => {
   return (
     <TouchableOpacity
+      onPress={logginGoogle}
       style={[
         buttonsStyles.btnSignUpGoogle,
         formComplete && buttonsStyles.btnSignUpGoogleOpen,
