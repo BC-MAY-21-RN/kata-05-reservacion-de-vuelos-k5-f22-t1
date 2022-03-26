@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "256967765907",
+    "project_id": "reservacion-de-vuelos-62092",
+    "storage_bucket": "reservacion-de-vuelos-62092.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256967765907:android:ed29efea5bac7ab0818266",
+        "android_client_info": {
+          "package_name": "com.abcorp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256967765907-u0l51ptbqjp9q83tpa8l2bffd59q5hjm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.abcorp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "256967765907-9s5tmvtoodhiqop6p50p91i6pooqusap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAT-MDkHxc6jl3omIBR9frnxuwh-cys2SE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256967765907-9s5tmvtoodhiqop6p50p91i6pooqusap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
