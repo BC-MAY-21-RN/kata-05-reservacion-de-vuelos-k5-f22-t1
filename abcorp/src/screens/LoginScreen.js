@@ -1,18 +1,13 @@
 import React from 'react';
-import auth from '@react-native-firebase/auth';
+// import auth from '@react-native-firebase/auth';
 import {View, Text} from 'react-native';
 import {FormLogin} from '../components/Login/FormLogin';
 import {ButtonsLogin} from '../components/Login/ButtonsLogin';
 import {useForm} from '../hooks/useForm';
 import {HaveAccount} from '../components/auth/HaveAccount';
 import {screenStyles} from '../components/auth/screenStyles';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
-
-GoogleSignin.configure({
-  webClientId:
-    '256967765907-9s5tmvtoodhiqop6p50p91i6pooqusap.apps.googleusercontent.com',
-});
-// import {ModalLoading} from '../components/auth/ModalLoading';
+import {useDispatch} from 'react-redux';
+import {loginWithGoogle} from '../actions/auth';
 
 const initialForm = {
   email: '',
@@ -21,19 +16,9 @@ const initialForm = {
 
 export const LoginScreen = ({navigation}) => {
   const {onChange, form} = useForm(initialForm);
+  const dispatch = useDispatch();
   const logginGoogle = async () => {
-    try {
-      // Get the users ID token
-      const {idToken} = await GoogleSignin.signIn();
-
-      // Create a Google credential with the token
-      const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-
-      // Sign-in the user with the credential
-      return auth().signInWithCredential(googleCredential);
-    } catch (error) {
-      console.log(error);
-    }
+    dispatch(loginWithGoogle());
   };
   return (
     <View style={screenStyles.container}>
