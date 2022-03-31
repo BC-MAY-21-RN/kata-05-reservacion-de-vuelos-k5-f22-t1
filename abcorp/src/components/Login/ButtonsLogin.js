@@ -25,6 +25,7 @@ export const ButtonsLogin = ({form, onChange, navigation}) => {
         msgBtnNormal="Log in"
         msgBtnGoogle="Log In with Google"
         navigation={navigation}
+        form={form}
       />
     </>
   );

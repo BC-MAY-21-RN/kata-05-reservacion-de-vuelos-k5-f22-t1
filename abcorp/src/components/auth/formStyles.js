@@ -20,4 +20,11 @@ export const formStyles = StyleSheet.create({
   inputFill: {
     borderColor: '#5D60F0',
   },
+  containerErrors: {
+    flexDirection: 'row',
+  },
+  txtError: {
+    color: 'red',
+    marginLeft: 5,
+  },
 });
