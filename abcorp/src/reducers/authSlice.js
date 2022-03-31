@@ -14,11 +14,7 @@ export const authSlice = createSlice({
     },
   },
   extraReducers: builder => {
-    builder.addCase(loginWithGoogle.fulfilled, (state, action) => {
-      state.uid = action.payload.user.uid;
-      state.name = action.payload.user.displayName;
-    });
-    builder.addCase(logout.fulfilled, state => {
+      builder.addCase(logout.fulfilled, state => {
       state.uid = '';
       state.name = '';
     });

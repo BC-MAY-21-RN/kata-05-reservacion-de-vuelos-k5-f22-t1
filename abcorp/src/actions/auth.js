@@ -1,6 +1,7 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
+import { removeLoading, removeMsgError, setLoading, setMsgErrorLogin, setMsgErrorRegister } from '../reducers/uiSlice';
 
 GoogleSignin.configure({
   webClientId:
@@ -26,3 +27,29 @@ export const logout = createAsyncThunk('auth/logout', async () => {
   await auth().signOut();
   await GoogleSignin.signOut();
 });
+
+export const registerWithEmailAndPassword = createAsyncThunk('auth/register', async ({email, password, firstName:name},thunkAPI) => {
+  try {
+    thunkAPI.dispatch(setLoading())
+    const {user} = await auth().createUserWithEmailAndPassword(email, password)
+    await user.updateProfile({displayName:name})
+    thunkAPI.dispatch(removeMsgError())
+    thunkAPI.dispatch(removeLoading())
+  } catch (error) {
+   thunkAPI.dispatch(setMsgErrorRegister())
+   thunkAPI.dispatch(removeLoading()) 
+  }
+})
+
+export const loginWithEmailAndPassword = createAsyncThunk('auth/login', async({email,password},thunkAPI)=> {
+  try {
+    thunkAPI.dispatch(setLoading())
+    const {user} = await auth().signInWithEmailAndPassword(email,password)
+    thunkAPI.dispatch(removeMsgError())
+    thunkAPI.dispatch(removeLoading())
+    return user
+  } catch (error) {
+    thunkAPI.dispatch(setMsgErrorLogin())
+    thunkAPI.dispatch(removeLoading())
+  }
+})

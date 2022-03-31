@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {ButtonsComplete} from '../auth/ButtonsComplete';
 
-export const ButtonsRegister = ({form, onChange}) => {
+export const ButtonsRegister = ({form, onChange, navigation}) => {
   const [formComplete, setFormComplete] = useState(false);
   const {firstName, email, password, checkedTerm} = form;
 
@@ -26,9 +26,11 @@ export const ButtonsRegister = ({form, onChange}) => {
   return (
     <>
       <ButtonsComplete
+        navigation={navigation}
         formComplete={formComplete}
         msgBtnNormal="Sign up"
         msgBtnGoogle="Sign Up with Google"
+        form={form}
       />
     </>
   );

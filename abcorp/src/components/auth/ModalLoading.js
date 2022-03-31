@@ -3,17 +3,20 @@ import {ActivityIndicator, Modal, StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export const ModalLoading = ({message}) => {
-  const [loading, setLoading] = useState(false);
+  //const [loading, setLoading] = useState(false);
   return (
     <View>
       <Modal transparent={true} visible={true}>
         <View style={styles.container}>
           <View style={styles.background}>
-            {loading ? (
+         
+            {/* {loading ? (
               <ActivityIndicator color="#5D60F0" size={50} />
             ) : (
               <Icon name="checkmark-circle-outline" color="#5D60F0" size={50} />
-            )}
+            )} 
+             */}
+             <ActivityIndicator color="#5D60F0" size={50} />
             <Text style={styles.message}>{message}</Text>
           </View>
         </View>
