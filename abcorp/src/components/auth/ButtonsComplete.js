@@ -8,7 +8,7 @@ export const ButtonsComplete = ({
   msgBtnNormal,
   msgBtnGoogle,
   navigation,
-  logginGoogle,
+  form,
 }) => {
   return (
     <>
@@ -16,12 +16,12 @@ export const ButtonsComplete = ({
         formComplete={formComplete}
         message={msgBtnNormal}
         navigation={navigation}
+        form={form}
       />
       <TextOr />
       <ButtonGoogle
         formComplete={formComplete}
         message={msgBtnGoogle}
-        logginGoogle={logginGoogle}
       />
     </>
   );

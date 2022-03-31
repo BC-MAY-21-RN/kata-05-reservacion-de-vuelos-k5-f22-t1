@@ -6,8 +6,8 @@ import {ButtonsLogin} from '../components/Login/ButtonsLogin';
 import {useForm} from '../hooks/useForm';
 import {HaveAccount} from '../components/auth/HaveAccount';
 import {screenStyles} from '../components/auth/screenStyles';
-import {useDispatch} from 'react-redux';
-import {loginWithGoogle} from '../actions/auth';
+import { useSelector } from 'react-redux';
+import { ModalLoading } from '../components/auth/ModalLoading';
 
 const initialForm = {
   email: '',
@@ -16,10 +16,7 @@ const initialForm = {
 
 export const LoginScreen = ({navigation}) => {
   const {onChange, form} = useForm(initialForm);
-  const dispatch = useDispatch();
-  const logginGoogle = async () => {
-    dispatch(loginWithGoogle());
-  };
+  const {loading} = useSelector(state => state.ui)
   return (
     <View style={screenStyles.container}>
       <Text style={screenStyles.title}>Log in</Text>
@@ -28,7 +25,6 @@ export const LoginScreen = ({navigation}) => {
         form={form}
         onChange={onChange}
         navigation={navigation}
-        logginGoogle={logginGoogle}
       />
       <HaveAccount
         navigation={navigation}
@@ -37,6 +33,7 @@ export const LoginScreen = ({navigation}) => {
         nameScreen="Sign up"
       />
       {/* use this component when we use firebase */}
+      {loading && <ModalLoading message="Login..."/>}
       {/* <ModalLoading message="Login..."/> */}
     </View>
   );
