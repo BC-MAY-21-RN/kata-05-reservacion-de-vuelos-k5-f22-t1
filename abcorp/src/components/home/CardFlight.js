@@ -4,8 +4,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {InfoFlight} from './InfoFlight';
 
 export const CardFlight = ({item}) => {
-  const [cityOrigin, countryOrigin] = item.originCity.split(',');
-  const [cityDestiny, countryDestiny] = item.destinyCity.split(',');
+  // console.log(item);
+  const [cityOrigin, countryOrigin] = item.flightOrigin.split(',');
+  const [cityDestiny, countryDestiny] = item.flightDestiny.split(',');
   return (
     <View>
       <View style={styles.container}>

@@ -1,19 +1,24 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {getFlightsApi} from '../actions/flights';
 
 export const flightSlice = createSlice({
   name: 'flight',
   initialState: {
-    uid: '',
-    name: '',
     flight: [],
   },
   reducers: {
-    getFlights: (state, action) => {
-      
-    },
+    // getFlights: (state, action) => {
+    //   console.log(action);
+    // },
+  },
+  extraReducers: builder => {
+    builder.addCase(getFlightsApi.fulfilled, (state, action) => {
+      // console.log(action.payload);
+      state.flight = action.payload;
+    });
   },
 });
 
-export const {} = flightSlice.actions;
+// export const {getFlights} = flightSlice.actions;
 
 export default flightSlice.reducer;

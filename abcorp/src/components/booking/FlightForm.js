@@ -25,6 +25,7 @@ export const FlightForm = ({
         flightDestinyScreen={flightDestinyScreen}
         flightData={flightOrigin}
         flightDataComplete={flightDataComplete}
+        txtButton="Next"
       />
     </>
   );

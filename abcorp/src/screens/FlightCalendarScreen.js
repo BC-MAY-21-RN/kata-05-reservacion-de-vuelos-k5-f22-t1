@@ -9,7 +9,6 @@ export const FlightCalendarScreen = ({route, navigation}) => {
   const {flightData: flightDestiny, flightDataComplete: flightOrigin} =
     route.params;
   const flightInfo = route.params;
-  // {"flightData": "Madrid,España ", "flightDataComplete": "Colima, México "}
 
   const [date, setDate] = useState({
     day: '',
@@ -34,6 +33,7 @@ export const FlightCalendarScreen = ({route, navigation}) => {
         flightDestinyScreen={'FlightPassengersScreen'}
         flightData={dateComplete}
         flightDataComplete={flightInfo}
+        txtButton="Next"
       />
     </View>
   );
