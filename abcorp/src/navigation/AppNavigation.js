@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {HomePageScreen} from '../screens/HomePageScreen';
@@ -18,22 +19,10 @@ export const AppNavigation = () => {
       }}>
       <Stack.Screen name="HomeScreen" component={HomePageScreen} />
       <Stack.Screen name="FlightOriginScreen" component={FlightOriginScreen} />
-      <Stack.Screen
-        name="FlightDestinyScreen"
-        component={FlightDestinyScreen}
-      />
-      <Stack.Screen
-        name="FlightCalendarScreen"
-        component={FlightCalendarScreen}
-      />
-      <Stack.Screen
-        name="FlightPassengersScreen"
-        component={FlightPassengersScreen}
-      />
-      <Stack.Screen
-        name="FlightReceiveScreen"
-        component={FlightReceiveScreen}
-      />
+      <Stack.Screen name="FlightDestinyScreen" component={FlightDestinyScreen} />
+      <Stack.Screen name="FlightCalendarScreen" component={FlightCalendarScreen} />
+      <Stack.Screen name="FlightPassengersScreen" component={FlightPassengersScreen} />
+      <Stack.Screen name="FlightReceiveScreen" component={FlightReceiveScreen} />
     </Stack.Navigator>
   );
 };
