@@ -9,6 +9,7 @@ import {logout} from '../actions/auth';
 import {getFlightsApi} from '../actions/flights';
 import {useSelector} from 'react-redux';
 import {ModalLoading} from '../components/auth/ModalLoading';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const HomePageScreen = ({navigation}) => {
   const dispatch = useDispatch();
@@ -32,7 +33,11 @@ export const HomePageScreen = ({navigation}) => {
         </Text>
       </View>
       {flight.length === 0 ? (
-        <Text>No has volado</Text>
+        <View style={styles.containerFlight}>
+            <Text style={styles.textNoFlight}>There's no flights yet.</Text>
+            <Icon name="airplane" color="#5D60F0" size={50} />
+        </View>
+
       ) : (
         <FlatList
           data={flight}
@@ -53,6 +58,7 @@ const styles = StyleSheet.create({
   home: {
     margin: 20,
     flex: 1,
+    
   },
   title: {
     fontSize: 28,
@@ -68,9 +74,18 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
   },
-
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  containerFlight: {
+    
+    alignItems: 'center',
+    marginTop:200,
+    
+  },
+  textNoFlight: {
+    fontSize: 30,
+  }
+  
 });

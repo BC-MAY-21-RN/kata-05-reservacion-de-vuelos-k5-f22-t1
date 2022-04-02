@@ -13,7 +13,7 @@ export const flightSlice = createSlice({
   },
   extraReducers: builder => {
     builder.addCase(getFlightsApi.fulfilled, (state, action) => {
-      // console.log(action.payload);
+      console.log(action.payload);
       state.flight = action.payload;
     });
   },
