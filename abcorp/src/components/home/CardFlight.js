@@ -1,12 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {getMonth} from '../../helpers/getMonth';
 import {InfoFlight} from './InfoFlight';
 
 export const CardFlight = ({item}) => {
-  // console.log(item);
   const [cityOrigin, countryOrigin] = item.flightOrigin.split(',');
   const [cityDestiny, countryDestiny] = item.flightDestiny.split(',');
+  const [year, month, day] = item.date.split('-');
+  const monthString = getMonth(month);
   return (
     <View>
       <View style={styles.container}>
@@ -16,7 +18,9 @@ export const CardFlight = ({item}) => {
       </View>
       <View style={styles.separator} />
       <View style={styles.containerDate}>
-        <Text style={styles.date}>{item.date}</Text>
+        <Text style={styles.date}>
+          {monthString} {day}, {year}
+        </Text>
         <Text style={styles.date}>{item.passengers} passengers</Text>
       </View>
     </View>

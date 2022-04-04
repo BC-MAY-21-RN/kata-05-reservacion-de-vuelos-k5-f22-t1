@@ -1,9 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect} from 'react';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
 import {CardFlight} from '../components/home/CardFlight';
 import {ItemSeparator} from '../components/home/ItemSeparator';
 import {BtnFloat} from '../components/home/BtnFloat';
-import data from '../components/home/API';
 import {useDispatch} from 'react-redux';
 import {logout} from '../actions/auth';
 import {getFlightsApi} from '../actions/flights';
@@ -33,11 +33,10 @@ export const HomePageScreen = ({navigation}) => {
         </Text>
       </View>
       {flight.length === 0 ? (
-        <View style={styles.containerFlight}>
-            <Text style={styles.textNoFlight}>There's no flights yet.</Text>
-            <Icon name="airplane" color="#5D60F0" size={50} />
+        <View style={styles.containerNotFlight}>
+          <Text style={styles.textNoFlight}>There's no flights yet.</Text>
+          <Icon name="airplane" color="#5D60F0" size={50} />
         </View>
-
       ) : (
         <FlatList
           data={flight}
@@ -58,7 +57,6 @@ const styles = StyleSheet.create({
   home: {
     margin: 20,
     flex: 1,
-    
   },
   title: {
     fontSize: 28,
@@ -78,14 +76,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  containerFlight: {
-    
+  containerNotFlight: {
     alignItems: 'center',
-    marginTop:200,
-    
+    marginTop: 200,
   },
   textNoFlight: {
     fontSize: 30,
-  }
-  
+    color: 'black',
+  },
 });
