@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {TextInput, Text, StyleSheet} from 'react-native';
+import {Autocomplete} from './Autocomplete';
 import {ButtonReserve} from './ButtonReserve';
+import {citiesApi} from './CitiesApi';
 
 export const FlightForm = ({
   navigation,
@@ -10,9 +12,28 @@ export const FlightForm = ({
   txt,
   flightDataComplete,
 }) => {
+  const [showAutoComplete, setShowAutoComplete] = useState(false);
+  const dataFilter = citiesApi
+    .filter(country => country.name.includes(flightOrigin))
+    .slice(0, 5);
+
+  useEffect(() => {
+    if (flightOrigin.length > 0 && !flightOrigin.includes(',')) {
+      setShowAutoComplete(true);
+    } else {
+      setShowAutoComplete(false);
+    }
+  }, [flightOrigin]);
+
   return (
     <>
       <Text style={styles.title}>{txt}</Text>
+      <Autocomplete
+        showAutoComplete={showAutoComplete}
+        setShowAutoComplete={setShowAutoComplete}
+        dataFilter={dataFilter}
+        setflightOrigin={setflightOrigin}
+      />
       <TextInput
         value={flightOrigin}
         onChangeText={setflightOrigin}
@@ -25,6 +46,7 @@ export const FlightForm = ({
         flightDestinyScreen={flightDestinyScreen}
         flightData={flightOrigin}
         flightDataComplete={flightDataComplete}
+        txtButton="Next"
       />
     </>
   );

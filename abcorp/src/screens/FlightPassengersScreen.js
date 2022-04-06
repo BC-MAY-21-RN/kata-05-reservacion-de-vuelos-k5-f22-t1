@@ -17,10 +17,16 @@ export const FlightPassengersScreen = ({route, navigation}) => {
     flightDataComplete;
   const monthString = getMonth(month);
 
+  const allData = {
+    flightOrigin,
+    flightDestiny,
+    numberViewed,
+    year,
+    month,
+    day,
+  };
+
   const ItemSeparator = () => <View style={styles.separator} />;
-
-  console.log(numberViewed.length);
-
   return (
     <View style={styles.container}>
       <BtnBack navigation={navigation} />
@@ -48,9 +54,10 @@ export const FlightPassengersScreen = ({route, navigation}) => {
       </View>
       <ButtonReserve
         navigation={navigation}
-        flightDestinyScreen={'HomeScreen'}
+        flightDestinyScreen={'FlightReceiveScreen'}
         flightData={numberViewed ? 'complete' : ''}
-        flightDataComplete={''}
+        flightDataComplete={allData}
+        txtButton="Next"
       />
     </View>
   );

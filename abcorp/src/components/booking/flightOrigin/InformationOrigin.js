@@ -52,6 +52,6 @@ const styles = StyleSheet.create({
     width: '45%',
   },
   txtDestiny: {
-    textAlign: 'center',
+    textAlign: 'right',
   },
 });
